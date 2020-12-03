@@ -29,7 +29,7 @@ pipeline {
 					bat 'mvnw.cmd clean package -e'
 				}
 				withSonarQubeEnv(installationName: 'sonar') { // You can override the credential to be used
-					bat 'mvn sonar:sonar -Dsonar.projectKey=MOD3_EJE6 -Dsonar.host.url=http://localhost:9000 -Dsonar.login=75a0e9b0613f563c0e69a23174cf79eb5d4d74c7'
+					bat 'mvnw.cmd sonar:sonar -Dsonar.projectKey=MOD3_EJE6 -Dsonar.host.url=http://localhost:9000 -Dsonar.login=75a0e9b0613f563c0e69a23174cf79eb5d4d74c7'
 				}
 			}
 		}
