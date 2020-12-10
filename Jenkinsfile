@@ -24,15 +24,9 @@ pipeline {
 				}
 			}
 		}
-		stage('Run') {
+		stage('Upload Nexus') {
 			steps {
-				bat 'start mvnw.cmd spring-boot:run'
-			}
-		}
-		stage('Testing') {
-			steps {
-			    sleep 10
-				bat 'curl http://localhost:8081/rest/mscovid/estadoMundial'
+				nexusPublisher nexusInstanceId: 'nexus', nexusRepositoryId: 'test-nexus', packages: [[$class: 'MavenPackage', mavenAssetList: [[classifier: '', extension: '', filePath: 'D:\\cfigueroa\\Capital Humano\\Especialista DevOps\\Programas Alumnos\\repos_git\\ejemplo-maven-jenkins\\build']], mavenCoordinate: [artifactId: 'DevOpsUsach2020', groupId: 'com.devopsusach2020', packaging: 'jar', version: '0.0.1']]]
 			}
 		}
     }
