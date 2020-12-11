@@ -26,7 +26,7 @@ pipeline {
 		}
 		stage('Upload Nexus') {
 			steps {
-				nexusPublisher nexusInstanceId: 'nexus-maricel', nexusRepositoryId: 'test-nexus', packages: [[$class: 'MavenPackage', mavenAssetList: [], mavenCoordinate: [artifactId: 'DevOpsUsach2020', groupId: 'com.devopsusach2020', packaging: 'jar', version: '0.0.1']]]
+				nexusPublisher nexusInstanceId: 'nexus-maricel', nexusRepositoryId: 'test-nexus', packages: [[$class: 'MavenPackage', mavenAssetList: [[classifier: '', extension: '', filePath: 'C:\\Users\\carlo.figueroa\\.jenkins\\workspace\\3_EJE4_Multibranch_feature-nexus\\build\\DevOpsUsach2020-0.0.1.jar']], mavenCoordinate: [artifactId: 'DevOpsUsach2020', groupId: 'com.devopsusach2020', packaging: 'jar', version: '0.0.1']]]
 			}
 		}
     }
